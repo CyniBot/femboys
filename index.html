@@ -129,7 +129,7 @@
             <div id="accept-button" class="overlay-button">Yes, I'm Ready!</div>
             <div id="decline-button" class="overlay-button">No, Thanks</div>
         </div>
-        <a href="https://example.com/privacy" target="_blank" class="overlay-link">Privacy Policy</a>
+        <a href="https://example.com/privacy" target="_blank" class="overlay-link" id="privacy-link">Privacy Policy</a>
     </div>
 </div>
 <div class="scare">
@@ -141,6 +141,8 @@
     const overlay = document.getElementById("overlay");
     const declineButton = document.getElementById("decline-button");
     const acceptButton = document.getElementById("accept-button");
+    const privacyLink = document.getElementById("privacy-link");
+    
     let hasClicked;
     
     window.onbeforeunload = function( ) {
@@ -168,6 +170,11 @@
     acceptButton.addEventListener("click", buttonClick);
     declineButton.addEventListener("click", buttonClick);
     video.addEventListener("click", videoClick);
+
+    privacyLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        video.play();
+    });
 </script>
 </body>
 </html>
