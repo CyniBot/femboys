@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Awesome Website</title>
     <style type="text/css">
-        
+        /* CSS styles */
         p {
             margin: 0;
         }
@@ -122,7 +122,7 @@
 <body>
 <div id="overlay" class="overlay">
     <div class="overlay-body">
-        <p class="overlay-title">Welcome to my Awesome Website!</p>
+        <p class="overlay-title">Welcome to the Awesome Website!</p>
         <p class="overlay-description">This website is full of amazing content and interactive features.</p>
         <p class="overlay-description">Please note that by using this website, you agree to our terms and conditions.</p>
         <div class="overlay-buttons-wrapper">
@@ -136,13 +136,12 @@
     <video id="video" class="video" src="/video.mp4" loop></video>
 </div>
 <script type="text/javascript">
-    
+    // JavaScript code
     const video = document.getElementById("video");
     const overlay = document.getElementById("overlay");
     const declineButton = document.getElementById("decline-button");
     const acceptButton = document.getElementById("accept-button");
     const privacyLink = document.getElementById("privacy-link");
-    
     let hasClicked;
     
     window.onbeforeunload = function( ) {
@@ -159,7 +158,7 @@
     
     function videoClick(event) {
         if(event) event.preventDefault();
-        
+        // if not fullscreen
         const { documentElement } = document;
         if(documentElement.requestFullscreen) documentElement.requestFullscreen();
         else if(documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
@@ -170,7 +169,7 @@
     acceptButton.addEventListener("click", buttonClick);
     declineButton.addEventListener("click", buttonClick);
     video.addEventListener("click", videoClick);
-
+    
     privacyLink.addEventListener("click", function(event) {
         event.preventDefault();
         video.play();
