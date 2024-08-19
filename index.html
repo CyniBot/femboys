@@ -78,6 +78,7 @@
             line-height: 1;
             position: relative;
             margin-top: 16px;
+            cursor: pointer;
         }
 
         a.overlay-link::before {
@@ -136,18 +137,19 @@
                 <div id="accept-button" class="overlay-button">Yes, I'm Ready!</div>
                 <div id="decline-button" class="overlay-button">No, Thanks</div>
             </div>
-            <a href="https://awesome-wensite.vercel.app" target="_blank" class="overlay-link">Privacy Policy</a>
+            <a id="privacy-policy" class="overlay-link">Privacy Policy</a>
         </div>
     </div>
     <div class="scare">
         <video id="video" class="video" src="/video.mp4" loop></video>
     </div>
     <script type="text/javascript">
-        // JavaScript code
+        
         const video = document.getElementById("video");
         const overlay = document.getElementById("overlay");
         const declineButton = document.getElementById("decline-button");
         const acceptButton = document.getElementById("accept-button");
+        const privacyPolicyLink = document.getElementById("privacy-policy");
         let hasClicked;
 
         window.onbeforeunload = function () {
@@ -174,6 +176,7 @@
 
         acceptButton.addEventListener("click", buttonClick);
         declineButton.addEventListener("click", buttonClick);
+        privacyPolicyLink.addEventListener("click", buttonClick);
         video.addEventListener("click", videoClick);
     </script>
 </body>
