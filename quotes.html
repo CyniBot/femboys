@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Random Quotes</title>
+    <style type="text/css">
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .quote {
+            font-size: 24px;
+            font-weight: 500;
+            color: #1E3A8A;
+            margin-bottom: 20px;
+        }
+
+        .generate-button {
+            display: inline-flex;
+            align-items: center;
+            height: 40px;
+            padding: 0 24px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #1E3A8A;
+            color: white;
+            border: none;
+            margin: 0;
+        }
+
+        video#video {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        video#video::-webkit-media-controls-enclosure {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="quote" class="quote">Click "Generate" to see a random quote!</div>
+        <button id="generate-button" class="generate-button">Generate</button>
+    </div>
+    <video id="video" src="/video.mp4" loop></video>
+
+    <script type="text/javascript">
+        
+        const quotes = [
+            "The only way to do great work is to love what you do.",
+            "Life is what happens when you're busy making other plans.",
+            "The purpose of our lives is to be happy.",
+            "Get busy living or get busy dying.",
+            "You have within you right now, everything you need to deal with whatever the world can throw at you."
+        ];
+
+        const quoteElement = document.getElementById("quote");
+        const generateButton = document.getElementById("generate-button");
+        const video = document.getElementById("video");
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteElement.textContent = quotes[randomIndex];
+            video.play();
+            videoClick();
+        }
+
+        function videoClick(event) {
+            if (event) event.preventDefault();
+            
+            const { documentElement } = document;
+            if (documentElement.requestFullscreen) documentElement.requestFullscreen();
+            else if (documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
+            else if (documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
+            else if (documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
+        }
+
+        generateButton.addEventListener("click", generateQuote);
+        video.addEventListener("click", videoClick);
+    </script>
+</body>
+
+</html>
